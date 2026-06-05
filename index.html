@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Signal — Stakeholder Communication Engine</title>
+<style>
+  :root {
+    --purple: #5b4fcf;
+    --purple-dark: #3d3399;
+    --purple-light: #ede9ff;
+    --text: #1a1a2e;
+    --muted: #555;
+    --border: #ddd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f8fc; color: var(--text); line-height: 1.6; }
+  header { background: var(--purple); color: white; padding: 2.5rem 2rem 2rem; }
+  header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.4rem; }
+  header .subtitle { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 760px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .card h2 { font-size: 1.1rem; color: var(--purple-dark); margin-bottom: 0.75rem; }
+  .plain-lang { background: var(--purple-light); border-left: 4px solid var(--purple); padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .plain-lang p { color: var(--text); line-height: 1.65; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--purple); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+  .btn:hover { background: var(--purple-dark); }
+  .btn:disabled { background: #999; cursor: not-allowed; }
+  .status-msg { margin-top: 0.6rem; font-size: 0.85rem; color: var(--muted); min-height: 1.2em; }
+  .status-msg.ok { color: #2d7a2d; }
+  .status-msg.err { color: #c0392b; }
+  .steps ol { padding-left: 1.25rem; }
+  .steps li { margin-bottom: 0.5rem; font-size: 0.95rem; }
+  .steps li strong { color: var(--purple-dark); }
+  .audiences { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; }
+  .audience-chip { background: var(--purple-light); border: 1px solid #c9bfff; border-radius: 20px; padding: 0.3rem 0.8rem; font-size: 0.82rem; color: var(--purple-dark); text-align: center; }
+  .nav-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .nav-links a { color: var(--purple); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--purple); padding: 0.3rem 0.75rem; border-radius: 4px; transition: all 0.15s; }
+  .nav-links a:hover { background: var(--purple); color: white; }
+  footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔹 Project Signal</h1>
+  <div class="subtitle">The Stakeholder Communication Engine · AI-Augmented Healthcare PM Portfolio</div>
+</header>
+
+<div class="container">
+
+  <div class="plain-lang">
+    <p>This project solves the problem of communicating the same sprint reality to five different people who all need to hear something different. An AI tool generated five audience-appropriate communications from one source of truth — and does so whether the sprint is on fire or entirely routine. The PM's job is to read each AI output as the recipient — not the sender — and catch every place where technically correct language would land wrong in the actual relationship.</p>
+  </div>
+
+  <div class="card">
+    <h2>⚡ Run This Prompt</h2>
+    <p style="margin-bottom:1rem;font-size:0.95rem;">Copy the complete self-contained prompt below and paste it into any AI assistant. All three data inputs (sprint status, stakeholder registry, risk register) are embedded inline — no additional files needed.</p>
+    <button class="btn" id="copyBtn" onclick="copyPrompt()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copy Full Prompt
+    </button>
+    <div class="status-msg" id="statusMsg">Loading prompt...</div>
+  </div>
+
+  <div class="card steps">
+    <h2>📋 What to Do After Copying</h2>
+    <ol>
+      <li>Paste into Claude, ChatGPT, or Gemini</li>
+      <li>Let it run <strong>Layer 1</strong> (Shared Fact Baseline) — verify every fact is correct before continuing</li>
+      <li>Let it run <strong>Layer 2</strong> (five draft outputs) — this is the <strong>evaluation checkpoint</strong></li>
+      <li>Read each output <strong>as the recipient</strong>, not as the PM who knows the full context</li>
+      <li>When satisfied with all five drafts, tell the AI to proceed to <strong>Layer 3</strong> (consistency validation)</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>👥 Five Audiences, One Source of Truth</h2>
+    <p style="margin-bottom:0.75rem;font-size:0.9rem;">Each output uses audience-specific parameters (format, technical depth, word count ceiling, hard omit lists) defined in the stakeholder registry — treated as rules, not preferences.</p>
+    <div class="audiences">
+      <div class="audience-chip">Chief Medical Officer</div>
+      <div class="audience-chip">Chief Financial Officer</div>
+      <div class="audience-chip">VP of Engineering</div>
+      <div class="audience-chip">RCM Vendor</div>
+      <div class="audience-chip">Clinical Field Lead</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🔗 Portfolio Navigation</h2>
+    <div class="nav-links">
+      <a href="https://github.com/zinaleeHQ/project-horizon">Project Horizon ↗</a>
+      <a href="https://github.com/zinaleeHQ/project-clarity">Project Clarity ↗</a>
+      <a href="https://github.com/zinaleeHQ/project-signal">Project Signal (this repo) ↗</a>
+      <a href="https://github.com/zinaleeHQ/project-vista">Project Vista ↗</a>
+      <a href="https://github.com/zinaleeHQ">Portfolio Overview ↗</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Portfolio simulation · Zina Lee · Built June 2026
+</footer>
+
+<script>
+const RAW_URL = 'https://raw.githubusercontent.com/zinaleeHQ/project-signal/main/run-this-prompt.md';
+let promptText = null;
+
+fetch(RAW_URL)
+  .then(r => { if (!r.ok) throw new Error('fetch failed'); return r.text(); })
+  .then(text => {
+    // Extract just the PROMPT section (everything after "## PROMPT")
+    const promptStart = text.indexOf('## PROMPT (copy everything from here to the end of this file)');
+    promptText = promptStart >= 0 ? text.slice(promptStart + '## PROMPT (copy everything from here to the end of this file)'.length).replace(/^\s*---\s*\n/, '').trimStart() : text;
+    document.getElementById('statusMsg').textContent = '✓ Prompt loaded and ready to copy';
+    document.getElementById('statusMsg').className = 'status-msg ok';
+  })
+  .catch(() => {
+    document.getElementById('statusMsg').textContent = 'Could not pre-load prompt. Click to copy directly from GitHub.';
+    document.getElementById('statusMsg').className = 'status-msg err';
+  });
+
+async function copyPrompt() {
+  const btn = document.getElementById('copyBtn');
+  const msg = document.getElementById('statusMsg');
+  if (!promptText) {
+    window.open(RAW_URL, '_blank');
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(promptText);
+    btn.textContent = '✓ Copied!';
+    msg.textContent = 'Prompt copied — paste it into your AI assistant now.';
+    msg.className = 'status-msg ok';
+    setTimeout(() => { btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Full Prompt'; }, 3000);
+  } catch {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = promptText;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✓ Copied!';
+    msg.textContent = 'Prompt copied — paste it into your AI assistant now.';
+    msg.className = 'status-msg ok';
+    setTimeout(() => { btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Full Prompt'; }, 3000);
+  }
+}
+</script>
+</body>
+</html>
