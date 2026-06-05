@@ -117,6 +117,12 @@ project-signal/
 
 ---
 
+## ✅ Product Manager Methodology Intervention
+
+Deciding what each audience must not see requires knowing organizational dynamics, trust relationships, and political risk well enough to make a judgment call that no AI can make independently. The stakeholder registry exists because those judgment calls must be made by a human before the AI can execute anything.
+
+---
+
 ## 🔗 Portfolio Navigation
 
 This is **Agent 3 of 3** — the communication and control layer that wraps around everything built in Agents 1 and 2.
