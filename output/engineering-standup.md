@@ -7,33 +7,33 @@
 
 ---
 
-## Sprint 2 Close â Engineering Status
+## Sprint 2 Close — Engineering Status
 *June 2026*
 
 ### Epic Status
 
 | Epic | Status | SP Complete | Notes |
 |---|---|---|---|
-| Epic 1 â HL7 Mapping Upgrade | â On Track | 34 / 38 | Final regression suite in progress. Partner Health System A 72-hour monitoring window closed clean. Cure notice response delivered Day 7. |
-| Epic 2 â Billing Dashboard | â ï¸ At Risk | 14 / 34 | Blocked Day 8. See blocker detail below. |
-| Item 05C â SOC 2 | â Complete | 5 / 5 | Closed Day 6. |
-| Item 13 â HIPAA Audit Log | â Complete | 5 / 5 | Closed Day 5. |
+| Epic 1 — HL7 Mapping Upgrade | ✅ On Track | 34 / 38 | Final regression suite in progress. Partner Health System A 72-hour monitoring window closed clean. Cure notice response delivered Day 7. |
+| Epic 2 — Billing Dashboard | ⚠️ At Risk | 14 / 34 | Blocked Day 8. See blocker detail below. |
+| Item 05C — SOC 2 | ✅ Complete | 5 / 5 | Closed Day 6. |
+| Item 13 — HIPAA Audit Log | ✅ Complete | 5 / 5 | Closed Day 5. |
 
 ---
 
-### Active Blocker: RISK-002 â platform v2.4.1 API Parameter Change
+### Active Blocker: RISK-002 — platform v2.4.1 API Parameter Change
 
 **Root Cause:**
-platform v2.4.1 renamed `dx_modifier_map` to `dx_code_modifier` in the modifier mapping parameter schema without release note documentation. Our integration layer was calling the deprecated field name, resulting in silent data validation failures on the billing dashboard data feed. Epic and Cerner EMR connections are unaffected â this is isolated to the RCM platformâbilling system integration layer.
+platform v2.4.1 renamed `dx_modifier_map` to `dx_code_modifier` in the modifier mapping parameter schema without release note documentation. Our integration layer was calling the deprecated field name, resulting in silent data validation failures on the billing dashboard data feed. Epic and Cerner EMR connections are unaffected — this is isolated to the RCM platform–billing system integration layer.
 
 **Resolution Path:**
-1. Update integration layer field mapping: `dx_modifier_map` â `dx_code_modifier`
+1. Update integration layer field mapping: `dx_modifier_map` → `dx_code_modifier`
 2. Validate against platform v2.4.1 API in staging
 3. Run integration regression suite covering modifier mapping, DSO calculation feed, and claim status sync
 4. Deploy Friday maintenance window
 
-**Estimated Effort:** 1 Data Engineer Â· 1.5 days
-**QA Estimate:** 0.5 days (Thursday PM â Friday AM)
+**Estimated Effort:** 1 Data Engineer · 1.5 days
+**QA Estimate:** 0.5 days (Thursday PM – Friday AM)
 
 ---
 
@@ -41,8 +41,8 @@ platform v2.4.1 renamed `dx_modifier_map` to `dx_code_modifier` in the modifier 
 
 | Risk | Status | Trigger for Escalation |
 |---|---|---|
-| RISK-003: St. Francis HL7 schema drift | Monitoring Â· No active failure | Escalate if batch error rate exceeds 2% |
-| RISK-004: QA capacity at 95% | Watching Â· Sprint buffer allocated | Escalate immediately if secondary issues found in RCM platform patch QA |
+| RISK-003: St. Francis HL7 schema drift | Monitoring · No active failure | Escalate if batch error rate exceeds 2% |
+| RISK-004: QA capacity at 95% | Watching · Sprint buffer allocated | Escalate immediately if secondary issues found in RCM platform patch QA |
 
 ---
 
@@ -50,13 +50,13 @@ platform v2.4.1 renamed `dx_modifier_map` to `dx_code_modifier` in the modifier 
 
 | Action | Owner | Due |
 |---|---|---|
-| Complete `dx_modifier_map` â `dx_code_modifier` field mapping update | Data Engineer (Lead) | Thursday EOD |
+| Complete `dx_modifier_map` → `dx_code_modifier` field mapping update | Data Engineer (Lead) | Thursday EOD |
 | Run platform v2.4.1 integration regression suite | QA Engineer | Thursday PM |
 | Sign off on QA results and approve Friday deployment | Tech Lead | Friday AM |
-| **Confirm: QA resource allocation for ThursdayâFriday patch validation** | **VP Engineering** | **Today** |
+| **Confirm: QA resource allocation for Thursday–Friday patch validation** | **VP Engineering** | **Today** |
 
-> **One decision needed from you:** Confirm QA resource allocation for ThursdayâFriday. If RISK-004 triggers (secondary issues found), we need pre-authorization to pull the Sprint 3 QA buffer forward. Please confirm or flag before EOD.
+> **One decision needed from you:** Confirm QA resource allocation for Thursday–Friday. If RISK-004 triggers (secondary issues found), we need pre-authorization to pull the Sprint 3 QA buffer forward. Please confirm or flag before EOD.
 
 ---
 
-*Consistency verified Â· Root cause: RCM platform field rename Â· Resolution: Thursday patch Â· Friday deploy Â· Action required: QA confirmation*
+*Consistency verified · Root cause: RCM platform field rename · Resolution: Thursday patch · Friday deploy · Action required: QA confirmation*

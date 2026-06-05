@@ -7,14 +7,14 @@
 
 ---
 
-## Sprint Update â CMO Briefing
+## Sprint Update — CMO Briefing
 *June 2026*
 
 I want to give you a brief update on our technology delivery this sprint and flag one item that is being actively managed.
 
 On the positive side: the integration work connecting our systems to Partner Health System A has been completed successfully. The issue that was threatening the partner relationship has been fully resolved, and our team delivered the formal response to their satisfaction ahead of schedule.
 
-The one item to be aware of: we identified a technical issue with an external vendorâs software update that has delayed one of our internal reporting tools by approximately one week. There is no impact to clinical operations, patient care, or the charge workflow that your hospitalists use daily. The issue is confined entirely to an internal back-office reporting system that is not yet live.
+The one item to be aware of: we identified a technical issue with an external vendor’s software update that has delayed one of our internal reporting tools by approximately one week. There is no impact to clinical operations, patient care, or the charge workflow that your hospitalists use daily. The issue is confined entirely to an internal back-office reporting system that is not yet live.
 
 Our team expects to have this resolved by end of week. I will update you immediately if that timeline changes.
 
@@ -22,4 +22,4 @@ No action is needed from your office at this time.
 
 ---
 
-*Consistency verified Â· Clinical impact: confirmed unaffected Â· Timeline: end of week Â· Action required: none*
+*Consistency verified · Clinical impact: confirmed unaffected · Timeline: end of week · Action required: none*

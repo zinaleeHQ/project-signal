@@ -7,20 +7,20 @@
 
 ---
 
-## Formal Escalation Notice â API Release Documentation Failure
+## Formal Escalation Notice — API Release Documentation Failure
 *June 2026*
 
-**To:** RCM platform Integration Support Â· Enterprise Accounts
-**From:** [PM Name] Â· Product Management
-**Re:** Undocumented Breaking Change â platform v2.4.1 Modifier Mapping Parameter
-**Priority:** High Â· SLA Event
+**To:** RCM platform Integration Support · Enterprise Accounts
+**From:** [PM Name] · Product Management
+**Re:** Undocumented Breaking Change — platform v2.4.1 Modifier Mapping Parameter
+**Priority:** High · SLA Event
 
 ---
 
 This notice documents a formal escalation under our enterprise service agreement regarding the platform v2.4.1 release dated [release date].
 
 **The Incident:**
-The v2.4.1 release introduced a breaking change to the modifier mapping parameter schema â specifically, the renaming of the `dx_modifier_map` field to `dx_code_modifier`. This change was not documented in the v2.4.1 release notes, the API changelog, or the enterprise customer communication issued prior to release.
+The v2.4.1 release introduced a breaking change to the modifier mapping parameter schema — specifically, the renaming of the `dx_modifier_map` field to `dx_code_modifier`. This change was not documented in the v2.4.1 release notes, the API changelog, or the enterprise customer communication issued prior to release.
 
 Our integration team identified the failure on [Sprint 2 Day 8] during Epic 2 development. The undocumented change caused silent data validation failures in our billing integration layer and has delayed a planned production deployment.
 
@@ -37,4 +37,4 @@ We value our partnership with RCM platform and expect to resolve this collaborat
 
 ---
 
-*Consistency verified Â· Incident: documented Â· SLA request: formal Â· Tone: professional accountability*
+*Consistency verified · Incident: documented · SLA request: formal · Tone: professional accountability*

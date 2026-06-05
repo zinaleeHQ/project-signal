@@ -7,10 +7,10 @@
 
 ---
 
-## Quick Update â Clinical Operations Team
+## Quick Update — Clinical Operations Team
 *June 2026*
 
-Hi team â quick note on where things stand with our technology work this sprint.
+Hi team — quick note on where things stand with our technology work this sprint.
 
 ---
 
@@ -18,17 +18,17 @@ Hi team â quick note on where things stand with our technology work this sp
 A: No. Nothing is changing for clinicians at any site this week.
 
 **Q: Will the charge entry process work the same way it does today?**
-A: Yes. The charge workflow â including both standard and manual cases â is operating exactly as it does today and will continue to do so.
+A: Yes. The charge workflow — including both standard and manual cases — is operating exactly as it does today and will continue to do so.
 
 **Q: Is there anything my team needs to do?**
 A: Nothing. No action is required from clinical operations or site coordinators.
 
-**Q: I heard there was a technology issue â should I be concerned?**
-A: The issue is in a back-office reporting system that isnât part of the clinical workflow. It doesnât touch patient care, charge entry, or anything your hospitalists interact with. Itâs being resolved this week.
+**Q: I heard there was a technology issue — should I be concerned?**
+A: The issue is in a back-office reporting system that isn’t part of the clinical workflow. It doesn’t touch patient care, charge entry, or anything your hospitalists interact with. It’s being resolved this week.
 
 **Q: When will I hear from you again?**
-A: At the start of Sprint 3, youâll receive the standard sprint kickoff update. If anything changes that affects your sites before then, Iâll reach out directly.
+A: At the start of Sprint 3, you’ll receive the standard sprint kickoff update. If anything changes that affects your sites before then, I’ll reach out directly.
 
 ---
 
-*Consistency verified Â· Clinical impact: none Â· Action required: none Â· Next communication: Sprint 3 kickoff*
+*Consistency verified · Clinical impact: none · Action required: none · Next communication: Sprint 3 kickoff*
