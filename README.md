@@ -1,4 +1,7 @@
 # 🔹 Project Signal: The Stakeholder Communication Engine
+> **What this project is about, in plain language:**
+>
+> This project solves the problem of communicating the same sprint reality to five different people who all need to hear something different. An AI tool generated five audience-appropriate communications from one source of truth — and does so whether the sprint is on fire or entirely routine. The PM's job is to read each AI output as the recipient — not the sender — and catch every place where technically correct language would land wrong in the actual relationship.
 
 > **One Source of Truth. Five Audiences. Zero Information Overload.**
 
