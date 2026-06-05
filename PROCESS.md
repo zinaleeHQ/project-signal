@@ -1,6 +1,6 @@
 # PROCESS.md — How I Built This Project
 
-*By Zina Lee, Enterprise Product Manager*
+*By Zina Lee, Product Manager*
 
 ---
 
