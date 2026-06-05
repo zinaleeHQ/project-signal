@@ -6,13 +6,13 @@
 
 ## Why This Project Exists
 
-Project Horizon decided what to build. Project Clarity changed how people work. Project Signal addresses the third failure mode that kills enterprise PM credibility: **the moment a risk materializes mid-sprint and the PM doesn’t know how to talk to five different people about it at the same time.**
+Project Horizon decided what to build. Project Clarity changed how people work. Project Signal addresses the third failure mode that kills enterprise PM credibility: **the moment a risk materializes mid-sprint and the PM doesn't know how to talk to five different people about it at the same time.**
 
 Every PM has been in this situation. The RCM platform API breaks. The CFO is asking about DSO. The CMO wants to know if patients are affected. The VP of Engineering wants the root cause. The vendor needs to be held accountable. The field team is hearing rumors.
 
-Most PMs write one email. It’s either too technical or too vague. It either alarmed the CMO unnecessarily or failed to give the engineering team the specificity they needed to act. Either way, someone is unhappy and someone is underinformed.
+Most PMs write one email. It's either too technical or too vague. It either alarmed the CMO unnecessarily or failed to give the engineering team the specificity they needed to act. Either way, someone is unhappy and someone is underinformed.
 
-This project demonstrates that I don’t do that. And I have the artifact to prove it.
+This project demonstrates that I don't do that. And I have the artifact to prove it.
 
 ---
 
@@ -73,6 +73,33 @@ The process analysis prompt (Project Clarity) is generative: analyze this data a
 This prompt is **contextually adaptive**: take the same data and produce five structurally different outputs that must all be internally consistent.
 
 Contextual adaptation is a harder prompt engineering challenge than either analysis or generation. It requires the AI to maintain a clear model of both the underlying facts AND the audience’s context simultaneously — and to apply different filters to the same information without losing the thread.
+
+---
+
+## What Happened When I Actually Ran It
+
+The prompt executed correctly. All five outputs passed the Layer 3 consistency check — clinical impact consistent, financial figures consistent, timelines consistent, no output contradicting another. The engine did what it was designed to do.
+
+That’s not the same as saying any of these are ready to send.
+
+### The engine produces a draft. The PM produces a communication.
+
+Five technically correct, internally consistent outputs is the floor, not the ceiling. Before any of these reach a stakeholder inbox, a human has to read each one through a lens the AI doesn’t have access to: the actual relationship, the current political moment, and the history that isn’t in any data file.
+
+The AI doesn’t know:
+- That the CMO has been quietly nervous about the RCM platform rollout for two months and needs a slightly different calibration of “calm” than the registry specifies
+- That the CFO has been asking pointed questions about DSO exposure since Q1 and the $85K–$120K range will land differently than it reads on paper
+- That the VP of Engineering is in a difficult spot with their team this sprint and the “confirm QA resources” ask needs to be framed as a conversation, not a task assignment
+- That the vendor relationship has history that changes how firm “firm” should be
+- That the Field Lead at a specific site has been skeptical of every update for six weeks and one wrong sentence will generate three follow-up calls
+
+The vendor escalation notice is the highest-stakes output — it has legal and contractual weight, and the tone register is the narrowest. Too soft and the vendor doesn’t feel the SLA obligation. Too sharp and the relationship deteriorates before the technical resolution is complete. But every output in this set carries real-world consequences if it misreads the room. The PM is the last line of defense between the AI’s draft and the stakeholder’s inbox — not as a copy editor, but as someone who knows the room.
+
+### What I Would Do Before Sending
+
+Read each output once for technical accuracy, then read it again as if you are the recipient — not the sender. Ask: what does this person feel when they finish reading this? Is that the reaction the registry specified? If the answer is “I’m not sure,” that’s the sentence that needs human attention before the message goes out.
+
+The AI generates five outputs in parallel with no context about the human beings receiving them. The PM reads them one at a time with full context about each person. That gap is where the judgment lives.
 
 ---
 
