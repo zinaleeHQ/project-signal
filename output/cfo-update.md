@@ -7,7 +7,7 @@
 
 ---
 
-## Sprint Update — CFO Summary
+## Sprint Update â CFO Summary
 *June 2026*
 
 **Status:** One active risk being managed. No current revenue impact.
@@ -15,18 +15,18 @@
 **The situation:**
 - A vendor software update introduced an undocumented change to our billing integration layer
 - This delayed our new billing reconciliation dashboard by approximately one week
-- Existing claims processing is **unaffected** — the current pipeline continues operating normally
+- Existing claims processing is **unaffected** â the current pipeline continues operating normally
 
 **The exposure:**
-- If unresolved by Friday: estimated **$85,000–$120,000 DSO exposure** on new manual cases (4–6 business day processing delay)
+- If unresolved by Friday: estimated **$85,000â$120,000 DSO exposure** on new manual cases (4â6 business day processing delay)
 - Resolution probability by Friday: **85%**
 
 **What happens next:**
-- Technical fix complete Thursday · Deployed Friday
+- Technical fix complete Thursday Â· Deployed Friday
 - You will hear from me again only if Friday resolution is missed
 
 **No CFO action required at this time.**
 
 ---
 
-*Consistency verified · Financial exposure: $85K–$120K · Resolution: Friday · Action required: none*
+*Consistency verified Â· Financial exposure: $85Kâ$120K Â· Resolution: Friday Â· Action required: none*
