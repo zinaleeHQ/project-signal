@@ -132,6 +132,7 @@ This is **Agent 3 of 3** — the communication and control layer that wraps arou
 | [Project Horizon](https://github.com/zinaleeHQ/project-horizon) | What do we build and when? | SAFe · WSJF |
 | [Project Clarity](https://github.com/zinaleeHQ/project-clarity) | How do we change how people work? | Lean · DMAIC |
 | **Project Signal** (this repo) | How do we keep every stakeholder aligned? | Stakeholder Intelligence · Audience Mapping |
+| [Project Vista](https://github.com/zinaleeHQ/project-vista) | How do we give every stakeholder self-service visibility? | KPI Governance · Data Architecture |
 
 [**← Back to Portfolio Overview**](https://github.com/zinaleeHQ)
 
