@@ -1,6 +1,6 @@
-# PROCESS.md — How I Built This Project
+# The PROCESS — How I Built This Project
 
-*By Zina Lee, Product Manager*
+*Zina Lee, Product Manager*
 
 ---
 
@@ -30,7 +30,7 @@ It also makes the registry reusable. The stakeholder parameters for a CMO at a h
 
 The most dangerous failure mode of a multi-audience communication engine isn’t saying the wrong thing to one audience. It’s saying slightly different things to two audiences who then compare notes.
 
-If the CMO briefing says “resolution expected by end of sprint” and the CFO update says “resolution expected within 5 business days” — those might mean the same thing, but they don’t read the same way. The CFO hears “five days” as longer than “end of sprint.” That inconsistency erodes trust faster than the original risk does.
+If the CMO briefing says “resolution expected by end of sprint” and the CFO update says “resolution expected within 5 business days” — those might mean the same thing, but they don’t read the same way. The CFO may or may not hear “five days” as longer than “end of sprint.” That inconsistency erodes trust faster than the original risk does.
 
 Building consistency enforcement as an explicit third layer — a validation step that runs after all five outputs are drafted and before any are finalized — addresses this directly. The AI is instructed to treat a consistency violation as a blocker, not a style note.
 
@@ -44,7 +44,7 @@ Including it here demonstrates that I understand PM communication isn’t just a
 
 ### Why the Field FAQ Uses Plain Language Instead of a Summary
 
-Every other output in this set is built around what the stakeholder needs to *know*. The field FAQ is built around what the clinician needs to *do* — which is nothing. The entire communication is designed to prevent unnecessary action, not to inform.
+Every other output in this set is built around what the stakeholder needs to *know*. The field FAQ is built around what the clinician needs to *do* — which in this case is nothing. The entire communication is designed to prevent unnecessary action, not to inform.
 
 That’s a different writing objective than the other four outputs, and it requires a different structure. A narrative brief or a bullet summary would leave a field clinician wondering what it means for them. A direct FAQ with a “no action required” answer to every question gives them permission to stop reading and get back to patients.
 
@@ -70,7 +70,7 @@ That’s a different writing objective than the other four outputs, and it requi
 
 The WSJF prompt (Project Horizon) is analytical: score these items against a framework.
 The process analysis prompt (Project Clarity) is generative: analyze this data and produce a new artifact.
-This prompt is **contextually adaptive**: take the same data and produce five structurally different outputs that must all be internally consistent.
+The Signal prompt is **contextually adaptive**: take the same data and produce five structurally different outputs that must all be internally consistent.
 
 Contextual adaptation is a harder prompt engineering challenge than either analysis or generation. It requires the AI to maintain a clear model of both the underlying facts AND the audience’s context simultaneously — and to apply different filters to the same information without losing the thread.
 
@@ -80,7 +80,7 @@ Contextual adaptation is a harder prompt engineering challenge than either analy
 
 The prompt executed correctly. All five outputs passed the Layer 3 consistency check — clinical impact consistent, financial figures consistent, timelines consistent, no output contradicting another. The engine did what it was designed to do.
 
-That’s not the same as saying any of these are ready to send.
+That’s not the same as saying any of the outputs are ready to send.
 
 ### The engine produces a draft. The PM produces a communication.
 
@@ -93,11 +93,11 @@ The AI doesn’t know:
 - That the vendor relationship has history that changes how firm “firm” should be
 - That the Field Lead at a specific site has been skeptical of every update for six weeks and one wrong sentence will generate three follow-up calls
 
-The vendor escalation notice is the highest-stakes output — it has legal and contractual weight, and the tone register is the narrowest. Too soft and the vendor doesn’t feel the SLA obligation. Too sharp and the relationship deteriorates before the technical resolution is complete. But every output in this set carries real-world consequences if it misreads the room. The PM is the last line of defense between the AI’s draft and the stakeholder’s inbox — not as a copy editor, but as someone who knows the room.
+The vendor escalation notice is the highest-stakes output — it has legal and contractual weight, and the tone register is the narrowest. Too soft and the vendor doesn’t feel the SLA obligation. Too sharp and the relationship deteriorates before the technical resolution is complete. But every output in this set carries real-world consequences if it misreads the room. The PM is the last line of defense between the AI’s draft and the stakeholder’s inbox — not as a copy editor, but as someone who knows the room and can pick the right shirt to wear.
 
 ### What I Would Do Before Sending
 
-Read each output once for technical accuracy, then read it again as if you are the recipient — not the sender. Ask: what does this person feel when they finish reading this? Is that the reaction the registry specified? If the answer is “I’m not sure,” that’s the sentence that needs human attention before the message goes out.
+Read each output once for technical accuracy, then read it again as if you are the recipient — not the sender. Ask: what does this person feel when they finish reading this? Is that the reaction the registry specified? If the answer is “I’m not sure,” that’s the part that needs human attention before the message goes out.
 
 The AI generates five outputs in parallel with no context about the human beings receiving them. The PM reads them one at a time with full context about each person. That gap is where the judgment lives.
 
