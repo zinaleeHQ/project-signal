@@ -143,7 +143,7 @@ Each prompt pauses at a PM judgment checkpoint before the final phase. Answer "y
 
 ## 🔗 Portfolio Navigation
 
-This is **Agent 3 of 3** — the communication and control layer that wraps around everything built in Agents 1 and 2.
+This is **Agent 3 of 4** — the communication and control layer that wraps around everything built in Agents 1 and 2.
 
 | Project | Question Answered | Methodology |
 |---|---|---|
