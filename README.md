@@ -13,7 +13,7 @@
 
 ## 📋 The Operational Challenge
 
-It is the end of Sprint 2 in the Project Horizon delivery window. Epic 1 (HL7 Mapping Upgrade) is on track. But a risk has materialized: the RCM platform API integration required for Epic 2’s billing reconciliation dashboard is running 4 days behind schedule due to an undocumented parameter change in RCM platform’s v2.4.1 release.
+It is the end of Sprint 2 in the Project Horizon delivery window. Epic 1 (HL7 Mapping Upgrade) is on track. But a risk has materialized: the Revenue Cycle Management (RCM) platform API integration required for Epic 2’s billing reconciliation dashboard is running 4 days behind schedule due to an undocumented parameter change in RCM platform’s v2.4.1 release.
 
 The delay has zero clinical safety impact. But it creates real DSO exposure if unresolved before the Sprint 3 cutover window — and five very different stakeholders need to know about it.
 
