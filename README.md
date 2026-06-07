@@ -28,7 +28,7 @@ This project documents an AI-assisted stakeholder communication engine that take
 | Stakeholder | Primary Concern | What They Must NOT See |
 |---|---|---|
 | **Chief Medical Officer** | Clinical operations continuity | API parameter details, sprint velocity |
-| **Chief Financial Officer** | DSO exposure and revenue timing | Technical root cause, team dynamics |
+| **Chief Financial Officer** | Defect Spillover (DSO) exposure and revenue timing | Technical root cause, team dynamics |
 | **VP of Engineering** | Technical root cause and resolution path | Executive narrative, political framing |
 | **RCM Platform Vendor** | SLA accountability and remediation timeline | Internal team capacity issues |
 | **Clinical Operations Field Lead** | Will anything change for my clinicians this week? | Everything else |
