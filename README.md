@@ -124,7 +124,22 @@ project-signal/
 
 Deciding what each audience must not see requires knowing organizational dynamics, trust relationships, and political risk well enough to make a judgment call that no AI can make independently. The stakeholder registry exists because those judgment calls must be made by a human before the AI can execute anything.
 
+
+
 ---
+
+
+## 🚀 Want to Try This Yourself?
+
+This project has a live HTML page with a one-click **Copy Prompt** button that copies the complete prompt for you, including data. Paste/Ctrl-V into Claude, GPT-4, or Gemini — no setup required.
+
+👉 [Open Project Signal Prompt Copy page](https://zinaleeHQ.github.io/project-signal/)
+
+Each prompt pauses at a PM judgment checkpoint before the final phase. Answer "yes" when you are ready to move forward. (That pause is the point.)
+
+
+---
+
 
 ## 🔗 Portfolio Navigation
 
