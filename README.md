@@ -152,7 +152,7 @@ This is **Agent 3 of 4** — the communication and control layer that wraps arou
 | **Project Signal** (this repo) | How do we keep every stakeholder aligned? | Stakeholder Intelligence · Audience Mapping |
 | [Project Vista](https://github.com/zinaleeHQ/project-vista) | How do we give every stakeholder self-service visibility? | KPI Governance · Data Architecture |
 
-[**← Back to Portfolio Overview**](https://github.com/zinaleeHQ)
+[**← Back to Portfolio Overview**](https://github.com/zinaleeHQ/zinaleeHQ/)
 
 ---
 
