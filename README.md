@@ -156,4 +156,4 @@ This is **Agent 3 of 4** — the communication and control layer that wraps arou
 
 ---
 
-*Portfolio simulation · All scenario details constructed from publicly available information · No proprietary data from any organization has been used · Built June 2026*
+*Portfolio case studies · All scenario details constructed from publicly available information · No proprietary data from any organization has been used · Built June 2026*
