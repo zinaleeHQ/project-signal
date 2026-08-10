@@ -1,9 +1,12 @@
 # Project Signal: The Stakeholder Communication Engine
-> **What this project is about, in plain language:**
->
-> This project solves the problem of communicating the same sprint reality to five different people who all need to hear something different. An AI tool generated five audience-appropriate communications from one source of truth — and does so whether the sprint is on fire or entirely routine. The PM's job is to read each AI output as the recipient — not the sender — and catch every place where technically correct language would land wrong in the actual relationship.
->
-> ***For the quickest look at how I work***, check out [the PROCESS page for Signal](https://github.com/zinaleeHQ/project-signal/blob/main/PROCESS.md).
+
+**Five AI-generated stakeholder updates passed every consistency check and still weren't ready to send — because the engine didn't know the CMO had been quietly nervous about this rollout for two months, and "calm" needed a different calibration than the registry specified.**
+
+That's the gap this project documents. Horizon decided what to build. Clarity changed how people work. This one is about the moment a risk surfaces mid-sprint and five different people — a CMO, a CFO, an engineering VP, a vendor, a field lead — all need the same truth delivered five different ways, without any of them catching a version that contradicts what someone else got.
+
+Most PMs write one email in that moment. It's too technical for the CMO, too soft for the CFO, and too alarming for the field team — because one message can't actually serve five audiences with different fears, different vocabularies, and different thresholds for panic.
+
+**[→ See the rest of the judgment calls in PROCESS.md](https://github.com/zinaleeHQ/project-signal/blob/main/PROCESS.md)** — same kind of thinking, more of it, including why the vendor escalation notice was the hardest of the five to get right.
 
 > **One Source of Truth. Five Audiences. Zero Information Overload.**
 
@@ -13,82 +16,79 @@
 
 ---
 
-## 📋 The Operational Challenge
+## ∴︎ Why This Matters Outside of Tech
 
-It is the end of Sprint 2 in the Project Horizon delivery window. Epic 1 (HL7 Mapping Upgrade) is on track. But a risk has materialized: the Revenue Cycle Management (RCM) platform API integration required for Epic 2’s billing reconciliation dashboard is running 4 days behind schedule due to an undocumented parameter change in RCM platform’s v2.4.1 release.
+Every organization eventually hits a moment where one piece of bad news has to reach several audiences at once, and each of them would panic, disengage, or misread the situation if they got someone else's version. A law firm partner explaining a case setback to a client needs a completely different message than the one going to the associates staffed on it, and both need to match what's going to the firm's insurer if it comes to that. A hospital administrator explaining a supply shortage to clinical staff can't send the same note that goes to the board.
 
-The delay has zero clinical safety impact. But it creates real DSO exposure if unresolved before the Sprint 3 cutover window — and five very different stakeholders need to know about it.
-
-The problem isn’t the risk. **The problem is that every PM’s instinct in this moment is to write one email and send it to everyone.** That email is too technical for the CMO, too vague for the VP of Engineering, too soft for the CFO, too internal for the vendor, and too alarming for the clinical field team.
-
-This project documents an AI-assisted stakeholder communication engine that takes a single source of raw sprint data and generates five audience-appropriate communications simultaneously — without losing consistency, without burying anyone in irrelevant detail, and without accidentally saying different things to different people about the same risk.
+The skill underneath this project is audience-aware communication built on a single, unshakeable source of truth — saying the same real thing five different ways without any version drifting from what's actually happening. Get it wrong, and you don't just have a communication problem. You have five people who each think they know what happened, and none of their versions quite match.
 
 ---
 
-## 👥 The Five Audiences
+## The Operational Challenge
 
-| Stakeholder | Primary Concern | What They Must NOT See |
+Sprint 2 of the Horizon delivery window is closing. The HL7 mapping upgrade is on track. But a risk has surfaced: the RCM platform API integration that Epic 2's billing dashboard depends on is four days behind schedule, thanks to an undocumented parameter change in the platform's v2.4.1 release.
+
+There's no clinical safety impact. But left unresolved before the Sprint 3 cutover, it creates real Days Sales Outstanding (DSO) exposure — and five stakeholders, each with a different stake in the outcome, need to hear about it before rumors beat the facts to their inbox.
+
+| Stakeholder | Primary Concern | Must Not See |
 |---|---|---|
 | **Chief Medical Officer** | Clinical operations continuity | API parameter details, sprint velocity |
 | **Chief Financial Officer** | DSO (Days Sales Outstanding) exposure — tracked alongside Defect Spillover as a leading indicator | Technical root cause, team dynamics |
 | **VP of Engineering** | Technical root cause and resolution path | Executive narrative, political framing |
 | **RCM Platform Vendor** | SLA accountability and remediation timeline | Internal team capacity issues |
-| **Clinical Operations Field Lead** | Will anything change for my clinicians this week? | Everything else |
+| **Clinical Operations Field Lead** | Will anything change for my team this week? | Everything else |
+
+This project documents an AI-assisted communication engine that takes one source of raw sprint data and generates five audience-appropriate outputs at once — without burying anyone in irrelevant detail, and without ever letting two versions of the same fact drift apart.
 
 ---
 
-## 📥 The Data Inputs
+## ⎔︎ What Feeds the Engine
 
-Three structured inputs feed the communication engine. See the `/data` folder for full source files.
+Three inputs, and the second one is doing most of the actual work.
 
-### Sprint Status (Raw)
-Unfiltered sprint data: Epic 1 and 2 status, the RCM platform API root cause, technical resolution path, DSO exposure window, team capacity, and clinical impact assessment. This is the single source of truth that all five communications must draw from — consistently.
+Sprint status is the unfiltered source of truth — epic status, root cause, resolution path, DSO exposure window, team capacity, clinical impact. Every one of the five outputs has to trace back to this file and agree with it.
 
-### Stakeholder Registry
-A structured map defining communication parameters for each of the five audiences: format, word count ceiling, technical depth dial (0–10), primary metric they track, and what to omit entirely. The registry is what transforms the prompt from a summarizer into an audience intelligence engine.
+The stakeholder registry is what separates this from a simple summarizer: a structured map defining, per audience, a technical-depth dial (0 to 10), a word-count ceiling, a tone register, what to lead with, and — just as important — an explicit list of what to omit entirely. Writing "the CMO doesn't want technical detail" into a prompt as prose gets treated as a soft suggestion. Writing `technical_depth: 0` and `hard_omit: [API details, sprint velocity]` into a structured file gets treated as a rule. That distinction is the whole reason this engine produces five genuinely different documents instead of one document with four watered-down copies.
 
-### Risk Register
-The active risk log providing prioritization context: probability, impact, current status, owner, and mitigation for the RCM platform API risk and two secondary risks. Gives the engine context for what to escalate vs. what to hold.
+The risk register adds prioritization context — probability, impact, owner, mitigation — so the engine knows what actually warrants escalation versus what can stay quiet for now.
 
 ---
 
-## 🤖 The AI Communication Engine
+## ⚙︎ How the Engine Actually Works
 
-The prompt in `/prompts/stakeholder-reporting-prompt.md` is the most architecturally sophisticated of the three portfolio projects. It operates in three layers:
+The prompt (`/prompts/stakeholder-reporting-prompt.md`) runs in three layers, and it's a harder problem than either Horizon's scoring or Clarity's redesign, because it has to hold two things in its head at once: the underlying facts, which never change, and five different audience filters, which change everything about how those facts get presented.
 
-**Layer 1 — Context Ingestion**
-Processes all three data files simultaneously and builds an internal model of sprint state, active risks, and audience parameters.
+Layer one ingests all three data files and builds an internal model of sprint state, active risks, and audience parameters together. Layer two applies the registry's conditional logic per output — technical depth, word ceiling, tone, lead-with priority, hard omits — so the CMO briefing and the engineering standup are drawing from the same well while reading nothing alike. Layer three is the part that actually matters most: before any output is finalized, the engine checks all five against each other and flags any place where a fact — a timeline, a dollar figure, a clinical impact claim — reads differently across two documents. That's not a style pass. A consistency violation is a blocker, the same way a compliance violation blocks a WSJF score in Horizon.
 
-**Layer 2 — Audience Variable Logic**
-For each of the five outputs, applies a conditional instruction set:
-- Technical depth dial (0 = zero jargon / 10 = full technical detail)
-- Word count ceiling per format type
-- Tone register (executive briefing / peer update / formal vendor notice / field FAQ)
-- Lead with: clinical impact / financial impact / technical resolution / accountability / simple answer
-- Hard omit list per audience
-
-**Layer 3 — Consistency Enforcement**
-Before finalizing any output, the engine validates that no two communications contradict each other on the same fact. The risk status, timeline, and clinical impact must be consistent across all five — even when the framing is completely different.
+Here's why that layer earns its own step instead of living inside the drafting step: the real danger in a multi-audience system isn't saying the wrong thing to one person. It's saying two *slightly* different true things to two people who later compare notes. If the CMO reads "resolution by end of sprint" and the CFO reads "resolution within 5 business days," those might describe the same date — but they don't land the same way, and the CFO may walk away thinking the timeline just got longer. That kind of inconsistency erodes trust faster than the original risk does.
 
 ---
 
-## 📊 The Output: Five Communications, One Story
-
-The same risk — described five completely different ways:
+## The Output: Five Communications, One Story
 
 | Output | Format | Length | Leads With |
 |---|---|---|---|
 | CMO Briefing | Narrative prose | 150 words | Clinical operations are unaffected |
 | CFO Update | Bullets + one number | 100 words | DSO exposure window |
-| Engineering Standup | Status table + action items | Full technical | Root cause + resolution path |
-| Vendor Escalation | Formal notice | Structured | SLA miss + remedy request |
-| Ops Field Update | FAQ | 5 questions | “Will anything change for my team?” |
+| Engineering Standup | Status table + action items | Full technical detail | Root cause and resolution path |
+| Vendor Escalation | Formal notice | Structured | SLA miss and remedy request |
+| Ops Field Update | FAQ | 5 questions | "Will anything change for my team?" |
 
-> **The test of a good communication engine:** A CMO and a VP of Engineering could each read their respective outputs, compare notes over lunch, and find no contradictions — just different levels of detail on the same underlying truth.
+The real test of whether this worked: could the CMO and the VP of Engineering compare notes over lunch and find zero contradictions between their two documents — just very different levels of detail sitting on top of the same underlying truth? That's the bar, and it's a genuinely different bar than "did each document sound appropriate on its own."
 
 ---
 
-## 📁 Repository Contents
+## Where PM Judgment Actually Had to Show Up
+
+All five outputs passed the consistency check. Technically, the engine did exactly what it was built to do — and that's the floor, not the ceiling, because passing a consistency check only proves the documents agree with each other. It doesn't prove any of them are ready to land in a real inbox.
+
+The registry doesn't know that the CMO has been quietly nervous about this rollout for two months and needs a different calibration of "calm" than the default setting. It doesn't know the CFO has been asking pointed questions about DSO exposure since Q1, so a number that reads as reassuring on paper might land as an escalation given the history. It doesn't know the VP of Engineering is already having a rough sprint with their team, so a resource-confirmation ask needs to read as a conversation, not an assignment. None of that lives in a data file. All of it lives in the PM's head, and none of it shows up until a human reads each output as the *recipient*, not the sender, and asks what that specific person is actually going to feel by the third sentence.
+
+The vendor escalation is the sharpest example of why this matters. It carries real contractual weight, and its tone register is the narrowest of the five — too soft, and the vendor doesn't feel the SLA obligation; too sharp, and a relationship you still depend on takes damage before the technical problem is even fixed. Getting that balance right isn't something a registry parameter can specify in advance. It's a judgment call made fresh, every time, by someone who knows the actual relationship.
+
+---
+
+## ↳︎ Repository Contents
 
 ```
 project-signal/
@@ -110,47 +110,28 @@ project-signal/
 
 ---
 
-## ✅ Product Manager Requirements
-
-| Requirement | How This Project Demonstrates It |
-|---|---|
-| *“Build trusted partnerships with business leaders and key stakeholders”* | Stakeholder registry maps each audience’s concerns, metrics, and communication preferences — the foundation of trusted relationships |
-| *“Communicate product progress, outcomes, risks, and opportunities to leadership teams”* | Five outputs deliver the same risk status to five leadership audiences in their own language |
-| *“Serve as primary liaison between business stakeholders, technology teams, and external vendors”* | The engine simultaneously manages internal executive communication AND a formal vendor escalation from the same data source |
-| *“Manage timelines, priorities, and resources to ensure successful delivery”* | Risk register and sprint status data demonstrate active timeline management with escalation triggers |
-| *“Act as product ambassador and subject matter expert for assigned platforms”* | Vendor escalation notice demonstrates platform-level accountability and SLA management fluency |
+Deciding what each audience must *not* see is its own kind of judgment call — one that depends on reading organizational dynamics, trust levels, and political risk well enough that no AI could make the call independently. The registry exists precisely because that decision has to happen before the AI runs, not after.
 
 ---
 
-## ✅ Product Manager Methodology Intervention
+## Try This Yourself
 
-Deciding what each audience must not see requires knowing organizational dynamics, trust relationships, and political risk well enough to make a judgment call that no AI can make independently. The stakeholder registry exists because those judgment calls must be made by a human before the AI can execute anything.
-
-
-
----
-
-
-## 🚀 Want to Try This Yourself?
-
-This project has a live HTML page with a one-click **Copy Prompt** button that copies the complete prompt for you, including data. Paste/Ctrl-V into Claude, GPT-4, or Gemini — no setup required.
+There's a live page with a one-click **Copy Prompt** button — grabs the full prompt plus data, ready to paste into Claude, GPT-4, or Gemini.
 
 👉 [Open Project Signal Prompt Copy page](https://zinaleeHQ.github.io/project-signal/)
 
-Each prompt pauses at a PM judgment checkpoint before the final phase. Answer "yes" when you are ready to move forward. (That pause is the point.)
-
+It pauses at a judgment checkpoint before the final phase, same as the others. That pause is the point.
 
 ---
 
+## ↳︎ Portfolio Navigation
 
-## 🔗 Portfolio Navigation
-
-This is **Prompt 3 of 4** — the communication and control layer that wraps around everything built in Prompts 1 and 2.
+Project 3 of 4 — the communication layer wrapped around everything Horizon and Clarity built.
 
 | Project | Question Answered | Methodology |
 |---|---|---|
-| [Project Horizon](https://github.com/zinaleeHQ/project-horizon) | What do we build and when? | SAFe · WSJF |
-| [Project Clarity](https://github.com/zinaleeHQ/project-clarity) | How do we change how people work? | Lean · DMAIC |
+| [Project Horizon](https://github.com/zinaleeHQ/project-horizon) | What do we build, and when? | SAFe · WSJF |
+| [Project Clarity](https://github.com/zinaleeHQ/project-clarity) | How do we change how people actually work? | Lean · DMAIC |
 | **Project Signal** (this repo) | How do we keep every stakeholder aligned? | Stakeholder Intelligence · Audience Mapping |
 | [Project Vista](https://github.com/zinaleeHQ/project-vista) | How do we give every stakeholder self-service visibility? | KPI Governance · Data Architecture |
 
@@ -158,4 +139,4 @@ This is **Prompt 3 of 4** — the communication and control layer that wraps aro
 
 ---
 
-*Portfolio case studies · All scenario details constructed from publicly available information · No proprietary data from any organization has been used · Built June 2026*
+*Portfolio case study · Built from publicly available information · No proprietary data used · June 2026*
