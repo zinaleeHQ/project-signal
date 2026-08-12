@@ -118,7 +118,7 @@ Deciding what each audience must *not* see is its own kind of judgment call — 
 
 There's a live page with a one-click **Copy Prompt** button — grabs the full prompt plus data, ready to paste into Claude, GPT-4, or Gemini.
 
-👉 [Open Project Signal Prompt Copy page](https://zinaleeHQ.github.io/project-signal/)
+›︎ [Open Project Signal Prompt Copy page](https://zinaleeHQ.github.io/project-signal/)
 
 It pauses at a judgment checkpoint before the final phase, same as the others. That pause is the point.
 
